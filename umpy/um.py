@@ -534,7 +534,7 @@ UNITS = {
 
 SI_PREFIXES = ('yotta', 'zetta', 'exa', 'peta', 'tera', 'giga', 'mega', 'kilo', 'hecto', 'deca', 'deci', 'centi', 'milli', 'micro', 'nano', 'pico', 'femto', 'atto', 'zepto', 'yocto', 'meter', 'liter',)
 
-def convert(amount, from_unit='', to_unit='', unit_type=''):
+def convert(amount, from_unit, to_unit, unit_type=''):
 	# Clean up all parameters and bail out as appropriate.
 	#	All parameters: remove trailing / leading spaces
 	#	Amount: convert to Decimal
@@ -568,8 +568,8 @@ def convert(amount, from_unit='', to_unit='', unit_type=''):
 	if not unit_type:
 		raise TypeError("Unable to determine unit_type. Must be one of: %s" % ", ".join(UNITS.keys()))
 
-	from_unit = from_unit.strip().replace('.', '').replace('inches', 'inch').replace('feet', 'foot').replace('metre', 'meter',).replace('litre', 'liter',)
-	to_unit = to_unit.strip().replace('.', '').replace('inches', 'inch').replace('feet', 'foot').replace('metre', 'meter',).replace('litre', 'liter',)
+	from_unit = str(from_unit).strip().replace('.', '').replace('inches', 'inch').replace('feet', 'foot').replace('metre', 'meter',).replace('litre', 'liter',)
+	to_unit = str(to_unit).strip().replace('.', '').replace('inches', 'inch').replace('feet', 'foot').replace('metre', 'meter',).replace('litre', 'liter',)
 	if from_unit and from_unit not in ['gross',]:
 		if len(from_unit) > 1 and from_unit.endswith('s'):
 			from_unit = from_unit[:-1]
