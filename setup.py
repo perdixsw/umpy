@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
 	name='umpy',
-	packages=['umpy,'],
+	packages=['umpy',],
 	version='0.1.0-dev',
 	url='https://www.github.com/perdixsw/umpy',
 	download_url='https://www.github.com/perdixsw/tarball/master',
