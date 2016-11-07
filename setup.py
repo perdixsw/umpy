@@ -3,8 +3,10 @@ from setuptools import setup
 
 setup(
 	name='umpy',
-	version='0.0.1',
+	packages=['umpy,'],
+	version='0.1.0-dev',
 	url='https://www.github.com/perdixsw/umpy',
+	download_url='https://www.github.com/perdixsw/tarball/master',
 	author='Perdix Software',
 	author_email='ssmith@perdixsw.com',
 	description=('Simple unit of measure conversion for python, optimized for manufacturing contexts.'),
@@ -12,6 +14,7 @@ setup(
 	include_package_data=True,
 	zip_safe=False,
 	install_requires=[],
+	keywords=['units', 'measure', 'measurement', 'conversion', 'converter',],
 	classifiers=[
 		'Development Status :: 2 - Pre-Alpha',
 		'Intended Audience :: Developers',
