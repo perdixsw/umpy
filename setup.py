@@ -4,9 +4,9 @@ from setuptools import setup
 setup(
 	name='umpy',
 	packages=['umpy',],
-	version='0.1.0',
+	version='0.1.0-dev',
 	url='https://www.github.com/perdixsw/umpy',
-	download_url='https://www.github.com/perdixsw/umpy/tarball/0.1.0',
+	download_url='https://www.github.com/perdixsw/umpy/tarball/master',
 	author='Perdix Software',
 	author_email='ssmith@perdixsw.com',
 	description=('Simple unit of measure conversion for python, optimized for manufacturing contexts.'),
