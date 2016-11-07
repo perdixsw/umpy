@@ -6,7 +6,7 @@ setup(
 	packages=['umpy',],
 	version='0.1.0-dev',
 	url='https://www.github.com/perdixsw/umpy',
-	download_url='https://www.github.com/perdixsw/tarball/master',
+	download_url='https://www.github.com/perdixsw/umpy/tarball/master',
 	author='Perdix Software',
 	author_email='ssmith@perdixsw.com',
 	description=('Simple unit of measure conversion for python, optimized for manufacturing contexts.'),
