@@ -1,13 +1,14 @@
 # umpy
-Simple unit of measure conversion for python, optimized for manufacturing contexts.
+Simple unit of measure conversion for python, optimized for manufacturing contexts.  (Unit of Measure Pie...)
 
-### OK, so what's a "manufacturing context"?
-Glad you asked!  At [Perdix Software](https://www.perdixsw.com/), our core product, MOLI, is a mini-ERP system for SMB manufacturing.  We needed a way to simply convert units commonly used in manufacturing.  After reviewing the available options, we decided to write our own simple unit converter, rather than delving into complicated scientific / statistical packages.  This also means that umpy doesn't support units that aren't commonly used in manufacturing. For example, we don't support electrical or temperature based measurements, like amperage, wattage, or degrees. While some manufacturers may make electrical components, it's rare that we'd ever need to convert these types of units *in situ*.
+umpy does not currently contain universal conversion logic, but would welcome pull requests.  We do not have a formal style guide, but emulate what you see.
+
+umpy was created in the spirit of PEP 20, especially the bit about being explicity simple, but chuckling at the bits about ambiguity and there only being one way to do good.
 
 ## Usage
-umpy is designed to be imported into your application, rather than being called on the commandline.
+umpy is designed to be imported into your application, rather than being called on the commandline.  I suppose it would be nice to have a variety of uis eventually -- from (ba)sh and dos/ps compatable, and whatever RFCs you want to play with.
 
-Simply pass an amount (must be able to be coerced into a `Decimal`), "from unit" and "to unit" (strings) as positional arguments like this:
+In any event, simply pass an amount (must be able to be coerced into a `Decimal`), "from unit" and "to unit" (strings) as positional arguments like this:
 ```
 from umpy import convert
 convert(1, 'ltr', 'ml')
@@ -15,8 +16,12 @@ convert(1, 'ltr', 'ml')
 
 The "from unit" and "to unit" can either be a full unit, like "liter", or a common abbreviation, like "ltr". It will be *slightly* faster if you pass the full name, since umpy doesn't have to figure out what you meant by your abbreviation.
 
+`convert` takes a numeric thing, and two strings that express the notions of `from` and `to`
+
+It will return a Decimal instance with trailing zeros trimmed off of whole numbers.
+
 You may optionally pass in, as a keyword argument, `unit_type`, which can be one of "count", "length", "area", "weight", or "volume".
-It is not required to pass this argument in, as umpy will attempt to figure it out.  But it's going to be *slightly* faster, since it doesn't have to do that if you pass it in.
+It is not required to pass this argument in, as umpy will attempt to figure it out -- but it's going to be *slightly* faster, since it doesn't have to do that if you pass it in, so pass it if you know it.
 
 ### Exceptions
 
@@ -24,6 +29,7 @@ umpy will raise `TypeError` or `ValueError` if you feed it bad data, or if it ca
 
 
 ## Compatability
-umpy is compatible with Python 2.x and 3.x.  It has been tested in 2.7 and 3.5, but should work on other versions. YMMV.
 
-NOTE:  This is extremely young, buggy software. Pull requests are welcome!
+We remain generally compatible with all currently-supported versions of Python; we do not deliberately remove compatibility without careful study.
+
+umpy runs on all modern versions of Python, and probably some older ones...  (3....x?)
